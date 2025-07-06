@@ -1,1 +1,5 @@
+com/nuevo/spa/gestortareas/model/Tarea.class
+com/nuevo/spa/gestortareas/util/ObjectFactory.class
 com/nuevo/spa/gestortareas/GestortareasApplication.class
+com/nuevo/spa/gestortareas/repository/TareaRepository.class
+com/nuevo/spa/gestortareas/util/impl/TareaFactory.class
