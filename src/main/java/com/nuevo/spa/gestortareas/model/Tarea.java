@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "tareas")
 public class Tarea {
@@ -14,10 +16,15 @@ public class Tarea {
     private Long id;
     private String nombre;
     private Long estado;
+    private String fechaCreacion;
+
+    public Tarea() {
+    }
 
     public Tarea(String nombre) {
         this.nombre = nombre;
         this.estado = 1L;
+        this.fechaCreacion = LocalDate.now().toString();
     }
 
     public String getNombre() {
@@ -34,5 +41,13 @@ public class Tarea {
 
     public void setEstado(Long estado) {
         this.estado = estado;
+    }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
