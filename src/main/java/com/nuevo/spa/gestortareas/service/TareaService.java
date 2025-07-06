@@ -8,4 +8,6 @@ public interface TareaService {
     Tarea crearTarea(String nombre);
     List<Tarea> obtenerTareas();
     Tarea obtenerTarea(Long id);
+    void borrarTarea(Long id);
+    Tarea actualizarTarea(Tarea tareaNueva);
 }

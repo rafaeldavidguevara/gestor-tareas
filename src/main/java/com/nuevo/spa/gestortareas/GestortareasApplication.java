@@ -38,7 +38,22 @@ public class GestortareasApplication {
 			log.info("Fecha de Creación:" + t.getFechaCreacion());
 		});
 		log.info(tareaService.obtenerTarea(2L).getNombre());
-		//tareaService.obtenerTarea(6L);
+		tareaService.borrarTarea(2L);
+		tareas = tareaService.obtenerTareas();
+		tareas.forEach(t -> {
+			log.info("ID: " + t.getId().toString());
+			log.info("Nombre:" + t.getNombre());
+			log.info("Estado:" + t.getEstado().toString());
+			log.info("Fecha de Creación:" + t.getFechaCreacion());
+		});
+		Tarea tareaNueva = new Tarea("Asear estantería");
+		tareaNueva.setId(3L);
+		tareaNueva.setEstado(2L);
+		tareaService.actualizarTarea(tareaNueva);
+		log.info(tareaService.obtenerTarea(3L).getNombre());
+		log.info(tareaService.obtenerTarea(3L).getEstado().toString());
+		log.info(tareaService.obtenerTarea(3L).getFechaCreacion());
+
 	}
 
 }

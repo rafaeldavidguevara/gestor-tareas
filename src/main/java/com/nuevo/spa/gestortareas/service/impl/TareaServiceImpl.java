@@ -1,5 +1,6 @@
 package com.nuevo.spa.gestortareas.service.impl;
 
+import com.nuevo.spa.gestortareas.exception.NotFoundException;
 import com.nuevo.spa.gestortareas.model.Tarea;
 import com.nuevo.spa.gestortareas.repository.TareaRepository;
 import com.nuevo.spa.gestortareas.service.TareaService;
@@ -7,7 +8,6 @@ import com.nuevo.spa.gestortareas.util.impl.TareaFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TareaServiceImpl implements TareaService {
@@ -31,12 +31,25 @@ public class TareaServiceImpl implements TareaService {
 
     @Override
     public Tarea obtenerTarea(Long id) {
-        Optional<Tarea> tareaOpt = tareaRepository.findById(id);
-        if (tareaOpt.isPresent()) {
-            return tareaOpt.get();
+        return tareaRepository.findById(id).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+    }
+
+    @Override
+    public void borrarTarea(Long id) {
+        if (tareaRepository.existsById(id)) {
+            tareaRepository.deleteById(id);
         }else {
-            throw new RuntimeException("Tarea no encontrada");
+            throw new NotFoundException("Tarea no encontrada");
         }
+    }
+
+   @Override
+    public Tarea actualizarTarea(Tarea tareaNueva) {
+        Tarea tareaActual = tareaRepository.findById(tareaNueva.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+        tareaActual.setNombre(tareaNueva.getNombre());
+        tareaActual.setEstado(tareaNueva.getEstado());
+        tareaActual.setFechaCreacion(tareaNueva.getFechaCreacion());
+        return tareaRepository.save(tareaActual);
     }
 
 
