@@ -1,6 +1,8 @@
 package com.nuevo.spa.gestortareas;
 
+import com.nuevo.spa.gestortareas.model.EstadoTarea;
 import com.nuevo.spa.gestortareas.model.Tarea;
+import com.nuevo.spa.gestortareas.repository.EstadoTareaRepository;
 import com.nuevo.spa.gestortareas.repository.TareaRepository;
 import com.nuevo.spa.gestortareas.service.TareaService;
 import com.nuevo.spa.gestortareas.util.impl.TareaFactory;
@@ -19,9 +21,20 @@ public class GestortareasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestortareasApplication.class, args);
+
 		/*
 		ConfigurableApplicationContext configurableApplicationContext =
 				SpringApplication.run(GestortareasApplication.class, args);
+
+		EstadoTareaRepository estadoTareaRepository =
+		configurableApplicationContext.getBean(EstadoTareaRepository.class);
+		EstadoTarea estadoTarea1 = new EstadoTarea("Iniciado");
+		EstadoTarea estadoTarea2 = new EstadoTarea("Ejecutando");
+		EstadoTarea estadoTarea3 = new EstadoTarea("Terminado");
+		estadoTareaRepository.save(estadoTarea1);
+		estadoTareaRepository.save(estadoTarea2);
+		estadoTareaRepository.save(estadoTarea3);
+
 		TareaRepository tareaRepository =
 				configurableApplicationContext.getBean(TareaRepository.class);
 		TareaFactory tareaFactory =
