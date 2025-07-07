@@ -1,9 +1,12 @@
-com/nuevo/spa/gestortareas/controller/TareaController.class
 com/nuevo/spa/gestortareas/util/ObjectFactory.class
-com/nuevo/spa/gestortareas/GestortareasApplication.class
-com/nuevo/spa/gestortareas/service/TareaService.class
 com/nuevo/spa/gestortareas/repository/TareaRepository.class
+com/nuevo/spa/gestortareas/util/impl/TareaOutputDtoFactory.class
 com/nuevo/spa/gestortareas/exception/NotFoundException.class
 com/nuevo/spa/gestortareas/model/Tarea.class
 com/nuevo/spa/gestortareas/service/impl/TareaServiceImpl.class
 com/nuevo/spa/gestortareas/util/impl/TareaFactory.class
+com/nuevo/spa/gestortareas/util/dto/TareaDto.class
+com/nuevo/spa/gestortareas/controller/TareaController.class
+com/nuevo/spa/gestortareas/GestortareasApplication.class
+com/nuevo/spa/gestortareas/service/TareaService.class
+com/nuevo/spa/gestortareas/util/dto/TareaOutputDto.class

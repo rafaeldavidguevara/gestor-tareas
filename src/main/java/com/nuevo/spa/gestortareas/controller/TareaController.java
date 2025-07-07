@@ -2,6 +2,8 @@ package com.nuevo.spa.gestortareas.controller;
 
 import com.nuevo.spa.gestortareas.model.Tarea;
 import com.nuevo.spa.gestortareas.service.TareaService;
+import com.nuevo.spa.gestortareas.util.dto.TareaDto;
+import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,13 +25,13 @@ public class TareaController {
     }
 
     @GetMapping(value = "/{tareaId}")
-    public ResponseEntity<Tarea> obtenerTarea(@PathVariable("tareaId") Long id) {
+    public ResponseEntity<TareaOutputDto> obtenerTarea(@PathVariable("tareaId") Long id) {
         return ResponseEntity.ok(tareaService.obtenerTarea(id));
     }
 
     @PostMapping
-    public ResponseEntity<Tarea> crearTarea(@RequestBody Tarea tareaNueva) {
-        return ResponseEntity.ok(tareaService.crearTarea(tareaNueva.getNombre()));
+    public ResponseEntity<Tarea> crearTarea(@RequestBody TareaDto tareaNueva) {
+        return ResponseEntity.ok(tareaService.crearTarea(tareaNueva));
     }
 
     @DeleteMapping(value = "/{tareaId}")
@@ -39,8 +41,13 @@ public class TareaController {
     }
 
     @PutMapping
-    public ResponseEntity<Tarea> editarTarea(@RequestBody Tarea tareaNueva) {
+    public ResponseEntity<Tarea> actualizarTarea(@RequestBody Tarea tareaNueva) {
         return ResponseEntity.ok(tareaService.actualizarTarea(tareaNueva));
+    }
+
+    @PostMapping(value = "/actualizartareas")
+    public ResponseEntity<List<Tarea>> actualizarTareas(@RequestBody List<Tarea> tareasNuevas) {
+        return ResponseEntity.ok(tareaService.actualizarTareas(tareasNuevas));
     }
 
 

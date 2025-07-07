@@ -15,14 +15,18 @@ public class Tarea {
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
     private String nombre;
+    private String descripcion;
+    private String responsable;
     private Long estado;
     private String fechaCreacion;
 
     public Tarea() {
     }
 
-    public Tarea(String nombre) {
+    public Tarea(String nombre, String descripcion, String responsable) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.responsable = responsable;
         this.estado = 1L;
         String fechaBuffer = LocalDateTime.now().toString();
         this.fechaCreacion = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
@@ -58,5 +62,21 @@ public class Tarea {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(String responsable) {
+        this.responsable = responsable;
     }
 }
