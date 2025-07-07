@@ -10,3 +10,4 @@ com/nuevo/spa/gestortareas/controller/TareaController.class
 com/nuevo/spa/gestortareas/GestortareasApplication.class
 com/nuevo/spa/gestortareas/service/TareaService.class
 com/nuevo/spa/gestortareas/util/dto/TareaOutputDto.class
+com/nuevo/spa/gestortareas/util/dto/TareaCambioDto.class

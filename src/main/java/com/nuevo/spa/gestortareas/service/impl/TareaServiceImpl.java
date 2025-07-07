@@ -4,6 +4,7 @@ import com.nuevo.spa.gestortareas.exception.NotFoundException;
 import com.nuevo.spa.gestortareas.model.Tarea;
 import com.nuevo.spa.gestortareas.repository.TareaRepository;
 import com.nuevo.spa.gestortareas.service.TareaService;
+import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
 import com.nuevo.spa.gestortareas.util.impl.TareaFactory;
@@ -55,19 +56,19 @@ public class TareaServiceImpl implements TareaService {
     }
 
    @Override
-    public TareaOutputDto actualizarTarea(Tarea tareaNueva) {
-        Tarea tareaActual = tareaRepository.findById(tareaNueva.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
-        tareaActual.setNombre(tareaNueva.getNombre());
-        tareaActual.setEstado(tareaNueva.getEstado());
+    public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
+        Tarea tareaActual = tareaRepository.findById(tareaCambioDto.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+        tareaActual.setNombre(tareaCambioDto.getNombre());
+        tareaActual.setEstado(tareaCambioDto.getEstado());
         String fechaBuffer = LocalDateTime.now().toString();
         tareaActual.setFechaCreacion(fechaBuffer.substring(0, fechaBuffer.indexOf(".")));
-        tareaActual.setResponsable(tareaNueva.getResponsable());
-        tareaActual.setDescripcion(tareaNueva.getDescripcion());
+        tareaActual.setResponsable(tareaCambioDto.getResponsable());
+        tareaActual.setDescripcion(tareaCambioDto.getDescripcion());
         return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));
     }
 
     @Override
-    public List<TareaOutputDto> actualizarTareas(List<Tarea> tareasNuevas) {
+    public List<TareaOutputDto> actualizarTareas(List<TareaCambioDto> tareasNuevas) {
         return tareasNuevas.stream().map(
                 t -> actualizarTarea(t)).collect(Collectors.toList());
     }

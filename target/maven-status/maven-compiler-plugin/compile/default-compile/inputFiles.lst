@@ -6,6 +6,7 @@
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/service/TareaService.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/service/impl/TareaServiceImpl.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/util/ObjectFactory.java
+/home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/util/dto/TareaCambioDto.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/util/dto/TareaDto.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/util/dto/TareaOutputDto.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/util/impl/TareaFactory.java
