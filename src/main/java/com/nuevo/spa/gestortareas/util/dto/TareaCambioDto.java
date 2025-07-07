@@ -11,8 +11,8 @@ public class TareaCambioDto {
     private String descripcion;
     @Schema(example = "Juan Oropeza")
     private String responsable;
-    @Schema(example = "2")
-    private Long estado;
+    @Schema(example = "ejecutando")
+    private String estado;
 
     public Long getId() {
         return id;
@@ -46,11 +46,11 @@ public class TareaCambioDto {
         this.responsable = responsable;
     }
 
-    public Long getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Long estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }

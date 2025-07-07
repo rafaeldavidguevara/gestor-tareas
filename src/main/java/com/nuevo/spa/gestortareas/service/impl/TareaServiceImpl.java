@@ -14,6 +14,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,14 +70,20 @@ public class TareaServiceImpl implements TareaService {
 
    @Override
     public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
+        HashMap<String, Long> estados = new HashMap<>();
+        estados.put("iniciado", 1L);
+        estados.put("ejecutando", 2L);
+        estados.put("terminado", 3L);
         Tarea tareaActual = tareaRepository.findById(tareaCambioDto.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
         tareaActual.setNombre(tareaCambioDto.getNombre());
-        tareaActual.setEstado(tareaCambioDto.getEstado());
+        tareaActual.setEstado(estados.get(tareaCambioDto.getEstado()));
         String fechaBuffer = LocalDateTime.now().toString();
         tareaActual.setUltimaModificacion(fechaBuffer.substring(0, fechaBuffer.indexOf(".")));
         tareaActual.setResponsable(tareaCambioDto.getResponsable());
         tareaActual.setDescripcion(tareaCambioDto.getDescripcion());
-        return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));
+        TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));
+        tareaOutputDto.setEstado(estadoTareaRepository.findById(tareaActual.getEstado()).get().getNombre());
+        return tareaOutputDto;
     }
 
     @Override
