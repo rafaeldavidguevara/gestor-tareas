@@ -11,6 +11,7 @@ import com.nuevo.spa.gestortareas.util.impl.TareaOutputDtoFactory;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,7 +59,10 @@ public class TareaServiceImpl implements TareaService {
         Tarea tareaActual = tareaRepository.findById(tareaNueva.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
         tareaActual.setNombre(tareaNueva.getNombre());
         tareaActual.setEstado(tareaNueva.getEstado());
-        tareaActual.setFechaCreacion(tareaNueva.getFechaCreacion());
+        String fechaBuffer = LocalDateTime.now().toString();
+        tareaActual.setFechaCreacion(fechaBuffer.substring(0, fechaBuffer.indexOf(".")));
+        tareaActual.setResponsable(tareaNueva.getResponsable());
+        tareaActual.setDescripcion(tareaNueva.getDescripcion());
         return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));
     }
 
