@@ -11,8 +11,8 @@ public class TareaOutputDto {
     private String descripcion;
     @Schema(example = "Juan Oropeza")
     private String responsable;
-    @Schema(example = "2")
-    private Long estado;
+    @Schema(example = "iniciado")
+    private String estado;
     @Schema(example = "2025-07-07T12:23:03")
     private String fechaCreacion;
     @Schema(example = "2025-07-07T12:23:03")
@@ -50,11 +50,11 @@ public class TareaOutputDto {
         this.responsable = responsable;
     }
 
-    public Long getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Long estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

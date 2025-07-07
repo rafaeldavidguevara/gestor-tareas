@@ -10,6 +10,9 @@ public class EstadoTarea {
     private Long id;
     private String nombre;
 
+    public EstadoTarea() {
+    }
+
     public EstadoTarea(String nombre) {
         this.nombre = nombre;
     }

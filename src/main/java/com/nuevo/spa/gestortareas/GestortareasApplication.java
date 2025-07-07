@@ -28,12 +28,13 @@ public class GestortareasApplication {
 
 		EstadoTareaRepository estadoTareaRepository =
 		configurableApplicationContext.getBean(EstadoTareaRepository.class);
-		EstadoTarea estadoTarea1 = new EstadoTarea("Iniciado");
-		EstadoTarea estadoTarea2 = new EstadoTarea("Ejecutando");
-		EstadoTarea estadoTarea3 = new EstadoTarea("Terminado");
+		EstadoTarea estadoTarea1 = new EstadoTarea("iniciado");
+		EstadoTarea estadoTarea2 = new EstadoTarea("ejecutando");
+		EstadoTarea estadoTarea3 = new EstadoTarea("terminado");
 		estadoTareaRepository.save(estadoTarea1);
 		estadoTareaRepository.save(estadoTarea2);
 		estadoTareaRepository.save(estadoTarea3);
+
 
 		TareaRepository tareaRepository =
 				configurableApplicationContext.getBean(TareaRepository.class);
