@@ -20,7 +20,7 @@ public class TareaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Tarea>> obtenerTareas() {
+    public ResponseEntity<List<TareaOutputDto>> obtenerTareas() {
         return ResponseEntity.ok(tareaService.obtenerTareas());
     }
 
@@ -30,7 +30,7 @@ public class TareaController {
     }
 
     @PostMapping
-    public ResponseEntity<Tarea> crearTarea(@RequestBody TareaDto tareaNueva) {
+    public ResponseEntity<TareaOutputDto> crearTarea(@RequestBody TareaDto tareaNueva) {
         return ResponseEntity.ok(tareaService.crearTarea(tareaNueva));
     }
 
@@ -41,12 +41,12 @@ public class TareaController {
     }
 
     @PutMapping
-    public ResponseEntity<Tarea> actualizarTarea(@RequestBody Tarea tareaNueva) {
+    public ResponseEntity<TareaOutputDto> actualizarTarea(@RequestBody Tarea tareaNueva) {
         return ResponseEntity.ok(tareaService.actualizarTarea(tareaNueva));
     }
 
     @PostMapping(value = "/actualizartareas")
-    public ResponseEntity<List<Tarea>> actualizarTareas(@RequestBody List<Tarea> tareasNuevas) {
+    public ResponseEntity<List<TareaOutputDto>> actualizarTareas(@RequestBody List<Tarea> tareasNuevas) {
         return ResponseEntity.ok(tareaService.actualizarTareas(tareasNuevas));
     }
 

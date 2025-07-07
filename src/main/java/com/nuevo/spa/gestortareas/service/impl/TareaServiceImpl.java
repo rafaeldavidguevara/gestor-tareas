@@ -28,13 +28,14 @@ public class TareaServiceImpl implements TareaService {
     }
 
     @Override
-    public Tarea crearTarea(TareaDto tareaDto){
-        return tareaRepository.save(tareaFactory.createObject(tareaDto));
+    public TareaOutputDto crearTarea(TareaDto tareaDto){
+        return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaFactory.createObject(tareaDto)));
     }
 
     @Override
-    public List<Tarea> obtenerTareas() {
-        return tareaRepository.findAll();
+    public List<TareaOutputDto> obtenerTareas() {
+        return tareaRepository.findAll().stream().map(
+                tarea -> tareaOutputDtoFactory.createObject(tarea)).collect(Collectors.toList());
     }
 
     @Override
@@ -53,17 +54,18 @@ public class TareaServiceImpl implements TareaService {
     }
 
    @Override
-    public Tarea actualizarTarea(Tarea tareaNueva) {
+    public TareaOutputDto actualizarTarea(Tarea tareaNueva) {
         Tarea tareaActual = tareaRepository.findById(tareaNueva.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
         tareaActual.setNombre(tareaNueva.getNombre());
         tareaActual.setEstado(tareaNueva.getEstado());
         tareaActual.setFechaCreacion(tareaNueva.getFechaCreacion());
-        return tareaRepository.save(tareaActual);
+        return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));
     }
 
     @Override
-    public List<Tarea> actualizarTareas(List<Tarea> tareasNuevas) {
-        return tareasNuevas.stream().map( t -> tareaRepository.save(t)).collect(Collectors.toList());
+    public List<TareaOutputDto> actualizarTareas(List<Tarea> tareasNuevas) {
+        return tareasNuevas.stream().map(
+                t -> actualizarTarea(t)).collect(Collectors.toList());
     }
 
 }

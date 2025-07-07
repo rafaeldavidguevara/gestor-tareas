@@ -7,10 +7,10 @@ import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
 import java.util.List;
 
 public interface TareaService {
-    Tarea crearTarea(TareaDto tareaDto);
-    List<Tarea> obtenerTareas();
+    TareaOutputDto crearTarea(TareaDto tareaDto);
+    List<TareaOutputDto> obtenerTareas();
     TareaOutputDto obtenerTarea(Long id);
     void borrarTarea(Long id);
-    Tarea actualizarTarea(Tarea tareaNueva);
-    List<Tarea> actualizarTareas(List<Tarea> tareasNuevas);
+    TareaOutputDto actualizarTarea(Tarea tareaNueva);
+    List<TareaOutputDto> actualizarTareas(List<Tarea> tareasNuevas);
 }
