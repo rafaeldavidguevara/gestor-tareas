@@ -18,7 +18,8 @@ public class GestortareasApplication {
 	private static final Logger log = LoggerFactory.getLogger(GestortareasApplication.class);
 
 	public static void main(String[] args) {
-
+		SpringApplication.run(GestortareasApplication.class, args);
+		/*
 		ConfigurableApplicationContext configurableApplicationContext =
 				SpringApplication.run(GestortareasApplication.class, args);
 		TareaRepository tareaRepository =
@@ -53,7 +54,7 @@ public class GestortareasApplication {
 		log.info(tareaService.obtenerTarea(3L).getNombre());
 		log.info(tareaService.obtenerTarea(3L).getEstado().toString());
 		log.info(tareaService.obtenerTarea(3L).getFechaCreacion());
-
+		 */
 	}
 
 }
