@@ -1,8 +1,13 @@
 package com.nuevo.spa.gestortareas.util.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class TareaDto {
+    @Schema(name = "Nombre tarea", example = "Ordenar equipos sala este")
     private String nombre;
+    @Schema(name = "Descripcion tarea", example = "Se deben ordenar los equipos por orden de envio")
     private String descripcion;
+    @Schema(name = "Responsable tarea", example = "Juan Oropeza")
     private String responsable;
 
     public String getNombre() {
