@@ -61,7 +61,7 @@ public class TareaServiceImpl implements TareaService {
         tareaActual.setNombre(tareaCambioDto.getNombre());
         tareaActual.setEstado(tareaCambioDto.getEstado());
         String fechaBuffer = LocalDateTime.now().toString();
-        tareaActual.setFechaCreacion(fechaBuffer.substring(0, fechaBuffer.indexOf(".")));
+        tareaActual.setUltimaModificacion(fechaBuffer.substring(0, fechaBuffer.indexOf(".")));
         tareaActual.setResponsable(tareaCambioDto.getResponsable());
         tareaActual.setDescripcion(tareaCambioDto.getDescripcion());
         return tareaOutputDtoFactory.createObject(tareaRepository.save(tareaActual));

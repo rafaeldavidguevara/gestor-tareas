@@ -17,6 +17,7 @@ public class TareaOutputDtoFactory implements ObjectFactory<TareaOutputDto, Tare
         tareaOutputDto.setResponsable(tarea.getResponsable());
         tareaOutputDto.setEstado(tarea.getEstado());
         tareaOutputDto.setFechaCreacion(tarea.getFechaCreacion());
+        tareaOutputDto.setUltimaModificacion(tarea.getUltimaModificacion());
         return tareaOutputDto;
     }
 }

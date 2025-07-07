@@ -19,6 +19,7 @@ public class Tarea {
     private String responsable;
     private Long estado;
     private String fechaCreacion;
+    private String ultimaModificacion;
 
     public Tarea() {
     }
@@ -30,6 +31,7 @@ public class Tarea {
         this.estado = 1L;
         String fechaBuffer = LocalDateTime.now().toString();
         this.fechaCreacion = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
+        this.ultimaModificacion = this.fechaCreacion;
     }
 
     public String getNombre() {
@@ -78,5 +80,13 @@ public class Tarea {
 
     public void setResponsable(String responsable) {
         this.responsable = responsable;
+    }
+
+    public String getUltimaModificacion() {
+        return ultimaModificacion;
+    }
+
+    public void setUltimaModificacion(String ultimaModificacion) {
+        this.ultimaModificacion = ultimaModificacion;
     }
 }
