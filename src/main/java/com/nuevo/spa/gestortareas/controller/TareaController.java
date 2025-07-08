@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ public class TareaController {
     public TareaController(TareaService tareaService) {
         this.tareaService = tareaService;
     }
+
     @Operation(summary = "Mostrar todas las tareas", description = "Retorna una lista con todas las tareas en el sistema")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tareas mostradas exitosamente")
@@ -45,7 +47,7 @@ public class TareaController {
             @ApiResponse(responseCode = "200", description = "Tarea creada exitosamente")
     })
     @PostMapping(value = "/crear",produces = { "application/json" }, consumes = { "application/json" })
-    public ResponseEntity<TareaOutputDto> crearTarea(@RequestBody TareaDto tareaNueva) {
+    public ResponseEntity<TareaOutputDto> crearTarea(@Valid @RequestBody TareaDto tareaNueva) {
         return ResponseEntity.ok(tareaService.crearTarea(tareaNueva));
     }
 
@@ -64,7 +66,7 @@ public class TareaController {
             @ApiResponse(responseCode = "200", description = "Tarea actualizada exitosamente")
     })
     @PutMapping(value = "/actualizar", produces = { "application/json" }, consumes = { "application/json" })
-    public ResponseEntity<TareaOutputDto> actualizarTarea(@RequestBody TareaCambioDto tareaCambioDto) {
+    public ResponseEntity<TareaOutputDto> actualizarTarea(@Valid @RequestBody TareaCambioDto tareaCambioDto) {
         return ResponseEntity.ok(tareaService.actualizarTarea(tareaCambioDto));
     }
 
