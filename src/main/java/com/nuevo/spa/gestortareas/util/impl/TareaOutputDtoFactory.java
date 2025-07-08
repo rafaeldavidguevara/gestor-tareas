@@ -10,13 +10,14 @@ public class TareaOutputDtoFactory implements ObjectFactory<TareaOutputDto, Tare
 
     @Override
     public TareaOutputDto createObject(Tarea tarea) {
-        TareaOutputDto tareaOutputDto = new TareaOutputDto();
-        tareaOutputDto.setId(tarea.getId());
-        tareaOutputDto.setNombre(tarea.getNombre());
-        tareaOutputDto.setDescripcion(tarea.getDescripcion());
-        tareaOutputDto.setResponsable(tarea.getResponsable());
-        tareaOutputDto.setFechaCreacion(tarea.getFechaCreacion());
-        tareaOutputDto.setUltimaModificacion(tarea.getUltimaModificacion());
-        return tareaOutputDto;
+        return TareaOutputDto.builder()
+                .id(tarea.getId())
+                .nombre(tarea.getNombre())
+                .descripcion(tarea.getDescripcion())
+                .responsable(tarea.getResponsable())
+                .fechaCreacion(tarea.getFechaCreacion())
+                .ultimaModificacion(tarea.getUltimaModificacion())
+                .build();
     }
+
 }
