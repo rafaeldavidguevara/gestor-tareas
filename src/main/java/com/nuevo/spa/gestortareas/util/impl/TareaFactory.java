@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 public class TareaFactory implements ObjectFactory<Tarea, TareaDto> {
     @Override
     public Tarea createObject(TareaDto tareaDto){
-        //return  new Tarea(tareaDto.getNombre(), tareaDto.getDescripcion(), tareaDto.getResponsable());
         String fechaBuffer = LocalDateTime.now().toString();
         fechaBuffer = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
         return Tarea.builder()
