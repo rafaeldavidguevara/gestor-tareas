@@ -25,13 +25,16 @@ public class TareaServiceImpl implements TareaService {
     private final TareaFactory tareaFactory;
     private final TareaOutputDtoFactory tareaOutputDtoFactory;
     private final EstadoTareaRepository estadoTareaRepository;
+    private final HashMap<String, Long> estados;
 
     public TareaServiceImpl(TareaRepository tareaRepository, TareaFactory tareaFactory,
-                            TareaOutputDtoFactory tareaOutputDtoFactory, EstadoTareaRepository estadoTareaRepository) {
+                            TareaOutputDtoFactory tareaOutputDtoFactory, EstadoTareaRepository estadoTareaRepository,
+                            HashMap<String, Long> estados) {
         this.tareaRepository = tareaRepository;
         this.tareaFactory = tareaFactory;
         this.tareaOutputDtoFactory = tareaOutputDtoFactory;
         this.estadoTareaRepository = estadoTareaRepository;
+        this.estados = estados;
     }
 
     @Override
@@ -70,10 +73,6 @@ public class TareaServiceImpl implements TareaService {
 
    @Override
     public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
-        HashMap<String, Long> estados = new HashMap<>();
-        estados.put("iniciado", 1L);
-        estados.put("ejecutando", 2L);
-        estados.put("terminado", 3L);
         Tarea tareaActual = tareaRepository.findById(tareaCambioDto.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
         tareaActual.setNombre(tareaCambioDto.getNombre());
         tareaActual.setEstado(estados.get(tareaCambioDto.getEstado()));

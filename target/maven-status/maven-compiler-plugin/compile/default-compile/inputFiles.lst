@@ -1,4 +1,5 @@
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/GestortareasApplication.java
+/home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/config/BeanConfiguration.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/controller/TareaController.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/exception/NotFoundException.java
 /home/rguevara/Projects/gestor-tareas/src/main/java/com/nuevo/spa/gestortareas/model/EstadoTarea.java
