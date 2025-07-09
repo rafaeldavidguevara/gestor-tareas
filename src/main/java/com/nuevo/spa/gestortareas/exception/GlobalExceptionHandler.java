@@ -14,13 +14,23 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleIllegalArgument(MethodArgumentNotValidException ex) {
+    public ResponseEntity<ErrorResponse> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
         String fechaBuffer = LocalDateTime.now().toString();
         fechaBuffer = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
         return new ResponseEntity<>(new ErrorResponse(
                 ex.getDetailMessageArguments()[1].toString(),
                 fechaBuffer),
                 HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(NotFoundException ex) {
+        String fechaBuffer = LocalDateTime.now().toString();
+        fechaBuffer = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
+        return new ResponseEntity<>(new ErrorResponse(
+                ex.getMessage(),
+                fechaBuffer),
+                HttpStatus.NOT_FOUND);
     }
 
 }

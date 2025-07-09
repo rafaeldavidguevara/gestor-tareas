@@ -75,7 +75,7 @@ public class TareaController {
             @ApiResponse(responseCode = "200", description = "Tareas actualizadas exitosamente")
     })
     @PostMapping(value = "/actualizarVarias", produces = { "application/json" }, consumes = { "application/json" })
-    public ResponseEntity<List<TareaOutputDto>> actualizarTareas(@RequestBody List<TareaCambioDto> tareaCambioDto) {
+    public ResponseEntity<List<TareaOutputDto>> actualizarTareas(@RequestBody List<@Valid TareaCambioDto> tareaCambioDto) {
         return ResponseEntity.ok(tareaService.actualizarTareas(tareaCambioDto));
     }
 
