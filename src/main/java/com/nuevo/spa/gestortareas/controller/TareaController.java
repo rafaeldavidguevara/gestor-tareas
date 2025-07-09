@@ -72,7 +72,7 @@ public class TareaController {
 
     @Operation(summary = "Actualizar varias tareas", description = "Actualiza varias tarea en el sistema a partir de un listado de tareas")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Tarea actualizada exitosamente")
+            @ApiResponse(responseCode = "200", description = "Tareas actualizadas exitosamente")
     })
     @PostMapping(value = "/actualizarVarias", produces = { "application/json" }, consumes = { "application/json" })
     public ResponseEntity<List<TareaOutputDto>> actualizarTareas(@RequestBody List<TareaCambioDto> tareaCambioDto) {
