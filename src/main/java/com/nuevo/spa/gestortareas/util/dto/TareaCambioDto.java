@@ -9,7 +9,10 @@ import lombok.Data;
 @Data
 public class TareaCambioDto {
     @Schema(example = "1")
-    private Long id;
+    @NotBlank(message = "Field id is required")
+    @NotNull(message = "Field id cannot be null")
+    @Pattern(regexp = "^[0-9]+$", message = "Field id must be a number")
+    private String id;
     @Schema(example = "Ordenar equipos sala este")
     @NotBlank(message = "Field nombre is required")
     @NotNull(message = "Field nombre cannot be null")

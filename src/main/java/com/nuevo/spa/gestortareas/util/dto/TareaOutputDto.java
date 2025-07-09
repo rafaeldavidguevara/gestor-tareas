@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder
 public class TareaOutputDto {
     @Schema(example = "1")
-    private Long id;
+    private String id;
     @Schema(example = "Ordenar equipos sala este")
     private String nombre;
     @Schema(example = "Se deben ordenar los equipos por orden de envio")

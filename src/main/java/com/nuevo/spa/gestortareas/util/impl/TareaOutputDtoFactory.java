@@ -11,7 +11,7 @@ public class TareaOutputDtoFactory implements ObjectFactory<TareaOutputDto, Tare
     @Override
     public TareaOutputDto createObject(Tarea tarea) {
         return TareaOutputDto.builder()
-                .id(tarea.getId())
+                .id(tarea.getId().toString())
                 .nombre(tarea.getNombre())
                 .descripcion(tarea.getDescripcion())
                 .responsable(tarea.getResponsable())

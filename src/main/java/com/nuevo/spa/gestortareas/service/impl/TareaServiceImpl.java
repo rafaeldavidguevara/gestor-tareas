@@ -73,7 +73,7 @@ public class TareaServiceImpl implements TareaService {
 
    @Override
     public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
-        Tarea tareaActual = tareaRepository.findById(tareaCambioDto.getId()).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+        Tarea tareaActual = tareaRepository.findById(Long.parseLong(tareaCambioDto.getId())).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
         tareaActual.setNombre(tareaCambioDto.getNombre());
         tareaActual.setEstado(estados.get(tareaCambioDto.getEstado()));
         String fechaBuffer = LocalDateTime.now().toString();
