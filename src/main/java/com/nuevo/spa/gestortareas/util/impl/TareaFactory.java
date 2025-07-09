@@ -3,6 +3,7 @@ package com.nuevo.spa.gestortareas.util.impl;
 import com.nuevo.spa.gestortareas.model.Tarea;
 import com.nuevo.spa.gestortareas.util.ObjectFactory;
 import com.nuevo.spa.gestortareas.util.dto.TareaDto;
+import com.nuevo.spa.gestortareas.util.helper.TimestampHelper;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -11,15 +12,14 @@ import java.time.LocalDateTime;
 public class TareaFactory implements ObjectFactory<Tarea, TareaDto> {
     @Override
     public Tarea createObject(TareaDto tareaDto){
-        String fechaBuffer = LocalDateTime.now().toString();
-        fechaBuffer = fechaBuffer.substring(0, fechaBuffer.indexOf("."));
+        String nowDate = TimestampHelper.getNowDate();
         return Tarea.builder()
                 .nombre(tareaDto.getNombre())
                 .descripcion(tareaDto.getDescripcion())
                 .responsable(tareaDto.getResponsable())
                 .estado(1L)
-                .fechaCreacion(fechaBuffer)
-                .ultimaModificacion(fechaBuffer)
+                .fechaCreacion(nowDate)
+                .ultimaModificacion(nowDate)
                 .build();
     }
 }
