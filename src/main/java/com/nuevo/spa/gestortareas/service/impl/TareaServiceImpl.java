@@ -55,7 +55,7 @@ public class TareaServiceImpl implements TareaService {
 
     @Override
     public TareaOutputDto obtenerTarea(Long id) {
-        Tarea tarea = tareaRepository.findById(id).orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+        Tarea tarea = tareaRepository.findById(id).get();
         TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(tarea);
         tareaOutputDto.setEstado(estadoTareaRepository.findById(tarea.getEstado()).get().getNombre());
         return tareaOutputDto;
@@ -72,8 +72,7 @@ public class TareaServiceImpl implements TareaService {
 
    @Override
     public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
-        Tarea tareaActual = tareaRepository.findById(Long.parseLong(tareaCambioDto.getId()))
-                .orElseThrow(() -> new NotFoundException("Tarea no encontrada"));
+        Tarea tareaActual = tareaRepository.findById(Long.parseLong(tareaCambioDto.getId())).get();
         TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(
                 tareaRepository.save(TareaHelper.updateFields(tareaActual, tareaCambioDto)));
         tareaOutputDto.setEstado(estadoTareaRepository.findById(tareaActual.getEstado()).get().getNombre());

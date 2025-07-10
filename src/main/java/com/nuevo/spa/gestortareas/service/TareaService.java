@@ -1,6 +1,5 @@
 package com.nuevo.spa.gestortareas.service;
 
-import com.nuevo.spa.gestortareas.model.Tarea;
 import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
