@@ -1,12 +1,10 @@
-package com.nuevo.spa.gestortareas.util.impl;
+package com.nuevo.spa.gestortareas.util.factory.impl;
 
 import com.nuevo.spa.gestortareas.model.Tarea;
-import com.nuevo.spa.gestortareas.util.ObjectFactory;
+import com.nuevo.spa.gestortareas.util.factory.ObjectFactory;
 import com.nuevo.spa.gestortareas.util.dto.TareaDto;
 import com.nuevo.spa.gestortareas.util.helper.TimestampHelper;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 public class TareaFactory implements ObjectFactory<Tarea, TareaDto> {

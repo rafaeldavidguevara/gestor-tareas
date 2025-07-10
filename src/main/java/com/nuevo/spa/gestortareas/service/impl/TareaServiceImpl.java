@@ -9,8 +9,8 @@ import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaDto;
 import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
 import com.nuevo.spa.gestortareas.util.helper.TareaHelper;
-import com.nuevo.spa.gestortareas.util.impl.TareaFactory;
-import com.nuevo.spa.gestortareas.util.impl.TareaOutputDtoFactory;
+import com.nuevo.spa.gestortareas.util.factory.impl.TareaFactory;
+import com.nuevo.spa.gestortareas.util.factory.impl.TareaOutputDtoFactory;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

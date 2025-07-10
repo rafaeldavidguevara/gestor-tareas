@@ -1,7 +1,7 @@
-package com.nuevo.spa.gestortareas.util.impl;
+package com.nuevo.spa.gestortareas.util.factory.impl;
 
 import com.nuevo.spa.gestortareas.model.Tarea;
-import com.nuevo.spa.gestortareas.util.ObjectFactory;
+import com.nuevo.spa.gestortareas.util.factory.ObjectFactory;
 import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
 import org.springframework.stereotype.Component;
 
