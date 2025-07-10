@@ -25,8 +25,10 @@ public class TareaServiceImpl implements TareaService {
     private final TareaOutputDtoFactory tareaOutputDtoFactory;
     private final EstadoTareaRepository estadoTareaRepository;
 
-    public TareaServiceImpl(TareaRepository tareaRepository, TareaFactory tareaFactory,
-                            TareaOutputDtoFactory tareaOutputDtoFactory, EstadoTareaRepository estadoTareaRepository) {
+    public TareaServiceImpl(TareaRepository tareaRepository,
+                            TareaFactory tareaFactory,
+                            TareaOutputDtoFactory tareaOutputDtoFactory,
+                            EstadoTareaRepository estadoTareaRepository) {
         this.tareaRepository = tareaRepository;
         this.tareaFactory = tareaFactory;
         this.tareaOutputDtoFactory = tareaOutputDtoFactory;
@@ -35,7 +37,8 @@ public class TareaServiceImpl implements TareaService {
 
     @Override
     public TareaOutputDto crearTarea(TareaDto tareaDto){
-        TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(tareaRepository.save(tareaFactory.createObject(tareaDto)));
+        TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(
+                tareaRepository.save(tareaFactory.createObject(tareaDto)));
         tareaOutputDto.setEstado(estadoTareaRepository.findById(1L).get().getNombre());
         return tareaOutputDto;
     }
@@ -79,8 +82,7 @@ public class TareaServiceImpl implements TareaService {
 
     @Override
     public List<TareaOutputDto> actualizarTareas(List<TareaCambioDto> tareasNuevas) {
-        return tareasNuevas.stream().map(
-                t -> actualizarTarea(t)).collect(Collectors.toList());
+        return tareasNuevas.stream().map(t -> actualizarTarea(t)).collect(Collectors.toList());
     }
 
 }
