@@ -1,4 +1,4 @@
-package com.nuevo.spa.gestortareas.model;
+package com.nuevo.spa.gestortareas.tarea.infrastructure.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "tareas")
-public class Tarea {
+public class TareaEntity {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;

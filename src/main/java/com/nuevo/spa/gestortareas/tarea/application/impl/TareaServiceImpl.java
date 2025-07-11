@@ -1,16 +1,16 @@
-package com.nuevo.spa.gestortareas.service.impl;
+package com.nuevo.spa.gestortareas.tarea.application.impl;
 
 import com.nuevo.spa.gestortareas.exception.NotFoundException;
-import com.nuevo.spa.gestortareas.model.Tarea;
-import com.nuevo.spa.gestortareas.repository.EstadoTareaRepository;
-import com.nuevo.spa.gestortareas.repository.TareaRepository;
-import com.nuevo.spa.gestortareas.service.TareaService;
-import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
-import com.nuevo.spa.gestortareas.util.helper.TareaHelper;
-import com.nuevo.spa.gestortareas.util.factory.impl.TareaFactory;
-import com.nuevo.spa.gestortareas.util.factory.impl.TareaOutputDtoFactory;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.entity.TareaEntity;
+import com.nuevo.spa.gestortareas.estadotarea.infrastructure.repository.EstadoTareaRepository;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.repository.TareaRepository;
+import com.nuevo.spa.gestortareas.tarea.application.TareaService;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaOutputDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.util.helper.TareaHelper;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.util.factory.TareaFactory;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.util.factory.TareaOutputDtoFactory;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +55,7 @@ public class TareaServiceImpl implements TareaService {
 
     @Override
     public TareaOutputDto obtenerTarea(Long id) {
-        Tarea tarea = tareaRepository.findById(id).get();
+        TareaEntity tarea = tareaRepository.findById(id).get();
         TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(tarea);
         tareaOutputDto.setEstado(estadoTareaRepository.findById(tarea.getEstado()).get().getNombre());
         return tareaOutputDto;
@@ -72,7 +72,7 @@ public class TareaServiceImpl implements TareaService {
 
    @Override
     public TareaOutputDto actualizarTarea(TareaCambioDto tareaCambioDto) {
-        Tarea tareaActual = tareaRepository.findById(Long.parseLong(tareaCambioDto.getId())).get();
+        TareaEntity tareaActual = tareaRepository.findById(Long.parseLong(tareaCambioDto.getId())).get();
         TareaOutputDto tareaOutputDto = tareaOutputDtoFactory.createObject(
                 tareaRepository.save(TareaHelper.updateFields(tareaActual, tareaCambioDto)));
         tareaOutputDto.setEstado(estadoTareaRepository.findById(tareaActual.getEstado()).get().getNombre());

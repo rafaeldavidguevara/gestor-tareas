@@ -1,9 +1,9 @@
-package com.nuevo.spa.gestortareas.controller;
+package com.nuevo.spa.gestortareas.tarea.infrastructure.controller;
 
-import com.nuevo.spa.gestortareas.service.TareaService;
-import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
+import com.nuevo.spa.gestortareas.tarea.application.TareaService;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaOutputDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

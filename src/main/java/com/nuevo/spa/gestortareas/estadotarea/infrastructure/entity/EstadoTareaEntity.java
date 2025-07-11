@@ -1,4 +1,4 @@
-package com.nuevo.spa.gestortareas.model;
+package com.nuevo.spa.gestortareas.estadotarea.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "estados_tarea")
-public class EstadoTarea {
+public class EstadoTareaEntity {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;

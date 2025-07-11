@@ -1,17 +1,17 @@
-package com.nuevo.spa.gestortareas.util.factory.impl;
+package com.nuevo.spa.gestortareas.tarea.infrastructure.util.factory;
 
-import com.nuevo.spa.gestortareas.model.Tarea;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.entity.TareaEntity;
 import com.nuevo.spa.gestortareas.util.factory.ObjectFactory;
-import com.nuevo.spa.gestortareas.util.dto.TareaDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
 import com.nuevo.spa.gestortareas.util.helper.TimestampHelper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TareaFactory implements ObjectFactory<Tarea, TareaDto> {
+public class TareaFactory implements ObjectFactory<TareaEntity, TareaDto> {
     @Override
-    public Tarea createObject(TareaDto tareaDto){
+    public TareaEntity createObject(TareaDto tareaDto){
         String nowDate = TimestampHelper.getNowDate();
-        return Tarea.builder()
+        return TareaEntity.builder()
                 .nombre(tareaDto.getNombre())
                 .descripcion(tareaDto.getDescripcion())
                 .responsable(tareaDto.getResponsable())

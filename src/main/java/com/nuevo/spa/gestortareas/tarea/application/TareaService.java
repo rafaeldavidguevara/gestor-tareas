@@ -1,8 +1,8 @@
-package com.nuevo.spa.gestortareas.service;
+package com.nuevo.spa.gestortareas.tarea.application;
 
-import com.nuevo.spa.gestortareas.util.dto.TareaCambioDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaDto;
-import com.nuevo.spa.gestortareas.util.dto.TareaOutputDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
+import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaOutputDto;
 
 import java.util.List;
 

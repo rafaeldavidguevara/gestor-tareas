@@ -15,12 +15,12 @@ import java.util.Arrays;
 public class LoggingAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Before("execution(* com.nuevo.spa.gestortareas.controller..*.*(..))")
+    @Before("execution(* com.nuevo.spa.gestortareas.tarea.infrastructure.controller..*.*(..))")
     public void logBeforeExecuteEndpoint(JoinPoint joinPoint) {
         logger.info("Method execution started: {} {}", joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
     }
 
-    @After("execution(* com.nuevo.spa.gestortareas.controller..*.*(..))")
+    @After("execution(* com.nuevo.spa.gestortareas.tarea.infrastructure.controller..*.*(..))")
     public void logAfterExecuteEndpoint(JoinPoint joinPoint) {
         logger.info("Method execution completed: {}", joinPoint.getSignature().getName());
     }
