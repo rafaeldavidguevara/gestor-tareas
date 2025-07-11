@@ -14,8 +14,8 @@ import java.util.NoSuchElementException;
 public class ExceptionAspect {
     private static final Logger logger = LoggerFactory.getLogger(ExceptionAspect.class);
 
-    @AfterThrowing(pointcut = "execution(* com.nuevo.spa.gestortareas.service.impl..*.*(..))", throwing = "ex")
-    public void handleServiceExceptions(Exception ex) {
+    @AfterThrowing(pointcut = "execution(* com.nuevo.spa.gestortareas.tarea.application.service.impl..*.*(..))", throwing = "ex")
+    public void handleTareaServiceExceptions(Exception ex) {
         if (ex instanceof NoSuchElementException nseEx) {
             logger.error("NoSuchElementException occurred: {}", nseEx.getMessage());
             throw new NotFoundException("Tarea no encontrada");

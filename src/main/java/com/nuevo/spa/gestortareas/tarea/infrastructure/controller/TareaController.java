@@ -1,6 +1,6 @@
 package com.nuevo.spa.gestortareas.tarea.infrastructure.controller;
 
-import com.nuevo.spa.gestortareas.tarea.application.TareaService;
+import com.nuevo.spa.gestortareas.tarea.application.service.TareaService;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaOutputDto;

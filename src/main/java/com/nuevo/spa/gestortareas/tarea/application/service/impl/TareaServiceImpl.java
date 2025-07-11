@@ -1,10 +1,10 @@
-package com.nuevo.spa.gestortareas.tarea.application.impl;
+package com.nuevo.spa.gestortareas.tarea.application.service.impl;
 
 import com.nuevo.spa.gestortareas.exception.NotFoundException;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.entity.TareaEntity;
 import com.nuevo.spa.gestortareas.estadotarea.infrastructure.repository.EstadoTareaRepository;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.repository.TareaRepository;
-import com.nuevo.spa.gestortareas.tarea.application.TareaService;
+import com.nuevo.spa.gestortareas.tarea.application.service.TareaService;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaOutputDto;

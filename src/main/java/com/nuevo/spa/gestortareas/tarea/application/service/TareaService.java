@@ -1,4 +1,4 @@
-package com.nuevo.spa.gestortareas.tarea.application;
+package com.nuevo.spa.gestortareas.tarea.application.service;
 
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaCambioDto;
 import com.nuevo.spa.gestortareas.tarea.infrastructure.dto.TareaDto;
