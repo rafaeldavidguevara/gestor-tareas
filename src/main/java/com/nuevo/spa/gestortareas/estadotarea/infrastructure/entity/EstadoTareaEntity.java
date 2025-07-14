@@ -1,6 +1,8 @@
 package com.nuevo.spa.gestortareas.estadotarea.infrastructure.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "estados_tarea")
+@Builder
+@AllArgsConstructor
 public class EstadoTareaEntity {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
